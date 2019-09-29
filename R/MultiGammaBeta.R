@@ -5,7 +5,8 @@
 #'
 #' @name mvgamma
 #'
-#' @param x a real or a complex number with \code{Re(x)>0}
+#' @param x a real or a complex number; \code{Re(x)>0} for \code{lmvgamma} and
+#' \code{x} must not be a negative integer for \code{mvgamma}
 #' @param p a positive integer, the dimension
 #'
 #' @return A real or a complex number.
@@ -21,7 +22,7 @@ NULL
   if(is.numeric(x)){
     S <- sum(lgamma(x + (1L - seq_len(p))/2))
   }else{
-    S <- sum(lngamma_complex(Re(x) + (1L - seq_len(p))/2), rep(Im(x), p))
+    S <- sum(lngamma_complex(Re(x) + (1L - seq_len(p))/2, rep(Im(x), p)))
   }
   C + S
 }
@@ -32,18 +33,33 @@ NULL
 lmvgamma <- function(x, p){
   stopifnot(
     isPositiveInteger(p),
-    is.vector(x) && is.atomic(x),
-    is.numeric(x) || is.complex(x),
+    isNumericOrComplex(x),
     length(x) == 1L,
     Re(x) > 0
   )
   .lmvgamma(x,p)
 }
 
+pochhammer <- function(z, n){
+  prod(seq_len(n)-1L + z)
+}
+
 #' @rdname mvgamma
 #' @export
 mvgamma <- function(x, p){
-  exp(lmvgamma(x, p))
+  stopifnot(
+    isPositiveInteger(p),
+    isNumericOrComplex(x),
+    length(x) == 1L,
+    isNotNegativeInteger(x)
+  )
+  if(Re(x)>0){
+    out <- exp(.lmvgamma(x, p))
+  }else{
+    n <- floor(-Re(x)) + 1
+    out <- exp(.lmvgamma(x+n, p)) / pochhammer(x, n)
+  }
+  out
 }
 
 
@@ -68,17 +84,19 @@ NULL
   .lmvgamma(a, p) + .lmvgamma(b, p) - .lmvgamma(a+b, p)
 }
 
+.mvbeta <- function(a, b, p){
+  exp(.lmvbeta(a, b, p))
+}
+
 #' @rdname mvbeta
 #' @export
 lmvbeta <- function(a, b, p){
   stopifnot(
     isPositiveInteger(p),
-    is.vector(a) && is.atomic(a),
-    is.numeric(a) || is.complex(a),
+    isNumericOrComplex(a),
     length(a) == 1L,
     Re(a) > 0,
-    is.vector(b) && is.atomic(b),
-    is.numeric(b) || is.complex(b),
+    isNumericOrComplex(b),
     length(b) == 1L,
     Re(b) > 0
   )

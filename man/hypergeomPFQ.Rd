@@ -27,29 +27,36 @@ A real or a complex number.
 Evaluates a truncated hypergeometric function of a matrix
 argument.
 }
+\details{
+This is an implementation of Koev & Edelman's algorithm
+(see the reference). This algorithm is split into two parts: the case of
+a scalar matrix (multiple of an identity matrix) and the general case.
+The case of a scalar matrix is much faster (try e.g. \code{x = c(1,1,1)} vs
+\code{x = c(1,1,0.999)}).
+}
 \note{
 The hypergeometric function of a matrix argument is usually defined
 for a symmetric real matrix or a Hermitian complex matrix.
 }
 \examples{
 # a scalar x example, the Gauss hypergeometric function
-hypergeomPFQ(m = 20, a = c(1,2), b = c(3), x = 0.5)
-gsl::hyperg_2F1(1, 2, 3, 0.5)
+hypergeomPFQ(m = 10, a = c(1,2), b = c(3), x = 0.2)
+gsl::hyperg_2F1(1, 2, 3, 0.2)
 # 0F0 is the exponential of the trace
 X <- toeplitz(c(3,2,1))/10
 hypergeomPFQ(m = 10, a = NULL, b = NULL, x = X)
 exp(sum(diag(X)))
 # 1F0 is det(I-X)^(-a)
 X <- toeplitz(c(3,2,1))/100
-hypergeomPFQ(m = 15, a = 3, b = NULL, x = X)
+hypergeomPFQ(m = 10, a = 3, b = NULL, x = X)
 det(diag(3)-X)^(-3)
 # Herz's relation for 1F1
-hypergeomPFQ(m=15, a = 2, b = 3, x = X)
-exp(sum(diag(X))) * hypergeomPFQ(m=15, a = 3-2, b = 3, x = -X)
+hypergeomPFQ(m = 10, a = 2, b = 3, x = X)
+exp(sum(diag(X))) * hypergeomPFQ(m = 10, a = 3-2, b = 3, x = -X)
 # Herz's relation for 2F1
-hypergeomPFQ(15, a = c(1,2), b = 3, x = X)
+hypergeomPFQ(10, a = c(1,2), b = 3, x = X)
 det(diag(3)-X)^(-2) *
-  hypergeomPFQ(15, a = c(3-1,2), b = 3, -X\%*\%solve(diag(3)-X))
+  hypergeomPFQ(10, a = c(3-1,2), b = 3, -X \%*\% solve(diag(3)-X))
 }
 \references{
 Plamen Koev and Alan Edelman.
