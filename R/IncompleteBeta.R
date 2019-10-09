@@ -26,6 +26,7 @@
 #' x <- 0.75
 #' IncBeta(m = 15, a, b, x)
 #' gsl::beta_inc(a, b, x)
+#' pbeta(x, a, b)
 IncBeta <- function(m, a, b, x){
   if(is.matrix(x)){
     stopifnot(isSymmetricPositive(x))
@@ -37,6 +38,7 @@ IncBeta <- function(m, a, b, x){
     stop("Invalid `x` argument")
   }
   stopifnot(
+    isPositiveInteger(m),
     isNumericOrComplex(a),
     length(a) == 1L,
     Re(a) > (p-1)/2,

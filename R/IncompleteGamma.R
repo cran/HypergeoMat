@@ -22,6 +22,7 @@
 #' x <- 1.5
 #' IncGamma(m = 15, a, x)
 #' gsl::gamma_inc_P(a, x)
+#' pgamma(x, shape = a, rate = 1)
 IncGamma <- function(m, a, x){
   if(is.matrix(x)){
 #    stopifnot(isSymmetric(x))
@@ -32,6 +33,7 @@ IncGamma <- function(m, a, x){
     stop("Invalid `x` argument")
   }
   stopifnot(
+    isPositiveInteger(m),
     isNumericOrComplex(a),
     length(a) == 1L,
     Re(a) > (p-1)/2
