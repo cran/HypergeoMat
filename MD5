@@ -1,6 +1,6 @@
-d137bbf5fab3c53b0b9cd19ed12fb1bf *DESCRIPTION
+3522fb01e616d5f0facb4198b3f67cbe *DESCRIPTION
 4b49f0b89a3bd8b1f9a168e612a26c25 *NAMESPACE
-35a91370f07acb6830852a81a5cb43b9 *NEWS.md
+92f7382f8d933185b08d78e348f7e90b *NEWS.md
 d5f346ff1aec8ec87ddb121b2befee8d *R/Bessel.R
 a80ba6495c725706a49051866254b164 *R/IncompleteBeta.R
 810995929087c8bc2d50c0ff972982d7 *R/IncompleteGamma.R
@@ -8,10 +8,10 @@ a6af1b062d491930165d106294c13bcf *R/MultiGammaBeta.R
 4ea57a91a81ce2ee783e89ebfecebe2f *R/RcppExports.R
 1d6afd628717d9049f631d7121eae528 *R/hypergeomPFQ.R
 1bc45c11d7ac0f2a67aa75038314dbdf *R/internal.R
-1510e7e2d32492c0f09985651e3e2636 *build/vignette.rds
-7ba6cef7c430e679c2942f8eaaf6fac5 *inst/doc/HypergeoMat.R
+29faba54f92ab065bf6863fe23199d0a *build/vignette.rds
+7c54c3932ebc7d228127cbd02abdc782 *inst/doc/HypergeoMat.R
 8104d0258c9ee8a7138e0b04b4593d23 *inst/doc/HypergeoMat.Rmd
-f6e492f6b650df329a27a9d2705a1aa0 *inst/doc/HypergeoMat.html
+ffa740205daa9c02d1d230c91c5f1d17 *inst/doc/HypergeoMat.html
 8346de3735a640df1810c286b823b7e4 *man/BesselA.Rd
 46c3a5b63aa9047fe81b3b06a76b7fa9 *man/IncBeta.Rd
 4b2d0ae1d2767cff9eab2fa41a38e075 *man/IncGamma.Rd
@@ -19,7 +19,7 @@ f6e492f6b650df329a27a9d2705a1aa0 *inst/doc/HypergeoMat.html
 4a42dc16634c025ea67443cab2e76907 *man/mvbeta.Rd
 dcf7799d6353460d3089078455cccaa4 *man/mvgamma.Rd
 bca0e4187261ad3082d3e30a06e2ab25 *src/Dico.h
-a8c6e37b62ffe5f518d8884e531546ef *src/HypergeoMat.cpp
+59f018812de12bce47ebccde430b5881 *src/HypergeoMat.cpp
 15570717c2f61f5db63cfdedb447668e *src/Makevars
 15570717c2f61f5db63cfdedb447668e *src/Makevars.win
 4c6d5107b6f57cf9b89368c0edebff4f *src/RcppExports.cpp
