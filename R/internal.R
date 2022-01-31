@@ -7,7 +7,8 @@ isPositiveInteger <- function(m){
 }
 
 isSymmetricPositive <- function(M){
-  isSymmetric(M) && all(eigen(M, symmetric = TRUE, only.values = TRUE)$values >= 0)
+  isSymmetric(M) &&
+    all(eigen(M, symmetric = TRUE, only.values = TRUE)$values >= 0)
 }
 
 isNotNegativeInteger <- function(z){
@@ -16,4 +17,16 @@ isNotNegativeInteger <- function(z){
 
 isNumericOrComplex <- function(x){
   is.vector(x) && is.atomic(x) && (is.numeric(x) || is.complex(x))
+}
+
+isScalar <- function(x){
+  isNumericOrComplex(x) && length(x) == 1L && !is.na(x)
+}
+
+isNumber <- function(x){
+  is.vector(x) && is.atomic(x) && is.numeric(x) && length(x) == 1L && !is.na(x)
+}
+
+isSquareMatrix <- function(M){
+  is.matrix(M) && (nrow(M) == ncol(M)) && (is.numeric(M) || is.complex(M))
 }
