@@ -1,6 +1,6 @@
-34d7c4843129b68fe06934bc8d12fc58 *DESCRIPTION
+4b944e3281f2351d11c31afb197bb97e *DESCRIPTION
 d392f5c81b42710c72708ec734118a74 *NAMESPACE
-0a4c1d724959b78c3693653c15f488b5 *NEWS.md
+117dffa2c3f4cf4d92f051ec2b673406 *NEWS.md
 b212e97e758589ef93eccae0b81c8e82 *R/Bessel.R
 a60fd1cab2f5bb1b92874909966bf716 *R/IncompleteBeta.R
 a6376622ecbc4c1bb28397693acff3a5 *R/IncompleteGamma.R
@@ -24,7 +24,7 @@ d38e326da74d41bb880ff27688e60153 *man/hypergeomPFQ_julia.Rd
 a3353706a8a2be0c51c705da6cb89302 *man/mvbeta.Rd
 b82626ed2d19938b7b84eb7397f8c291 *man/mvgamma.Rd
 bca0e4187261ad3082d3e30a06e2ab25 *src/Dico.h
-2654f443b8aa864b0d67fc0188f45435 *src/HypergeoMat.cpp
+8c87bc34adec9a2505cbde8e8ea6dbbd *src/HypergeoMat.cpp
 e3d3cb360fbfdb3c6974e14eb5f09870 *src/Makevars
 e3d3cb360fbfdb3c6974e14eb5f09870 *src/Makevars.win
 370c4e89dec89b40802ea63796721bd0 *src/RcppExports.cpp
