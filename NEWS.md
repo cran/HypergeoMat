@@ -1,3 +1,9 @@
+# Version 4.0.3 (2024-07-23)
+
+No change for the user. Only some modifications in the unit tests have been done, 
+which were necessary because of an update of the **jack** package. 
+
+
 # Version 4.0.2 (2023-01-27)
 
 Switched to C++ 17.

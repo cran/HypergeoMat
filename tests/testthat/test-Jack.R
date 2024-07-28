@@ -1,7 +1,7 @@
 context("Jack expansions")
 
 test_that("Schur expansion", {
-  skip_if_not_installed("jack")
+  skip_if_not_installed("jack", minimum_version = "6.0.0")
   library(jack)
   genpoch <- function(a, kappa, alpha) {
     prod(sapply(seq_along(kappa), function(i) {
@@ -16,16 +16,16 @@ test_that("Schur expansion", {
   o1 <-
     genpoch(a[1], c(0), alpha) * genpoch(a[2], c(0), alpha) /
     genpoch(b[1], c(0), alpha) / genpoch(b[2], c(0), alpha) *
-    Schur(x, c(0)) +
+    SchurR(x, c(0)) +
     genpoch(a[1], c(1), alpha) * genpoch(a[2], c(1), alpha) /
       genpoch(b[1], c(1), alpha) / genpoch(b[2], c(1), alpha) *
-      Schur(x, c(1)) +
+      SchurR(x, c(1)) +
     genpoch(a[1], c(1, 1), alpha) * genpoch(a[2], c(1, 1), alpha) /
       genpoch(b[1], c(1, 1), alpha) / genpoch(b[2], c(1, 1), alpha) *
-      Schur(x, c(1, 1)) / 2 +
+      SchurR(x, c(1, 1)) / 2 +
     genpoch(a[1], c(2), alpha) * genpoch(a[2], c(2), alpha) /
       genpoch(b[1], c(2), alpha) / genpoch(b[2], c(2), alpha) *
-      Schur(x, c(2)) / 2
+      SchurR(x, c(2)) / 2
   o2 <- hypergeomPFQ(m, a, b, x, alpha)
   expect_equal(o1, o2)
   #
@@ -35,22 +35,22 @@ test_that("Schur expansion", {
   o1 <-
     genpoch(a[1], c(0), alpha) * genpoch(a[2], c(0), alpha) /
     genpoch(b[1], c(0), alpha) / genpoch(b[2], c(0), alpha) *
-    Schur(x, c(0)) +
+    SchurR(x, c(0)) +
     genpoch(a[1], c(1), alpha) * genpoch(a[2], c(1), alpha) /
       genpoch(b[1], c(1), alpha) / genpoch(b[2], c(1), alpha) *
-      Schur(x, c(1)) +
+      SchurR(x, c(1)) +
     genpoch(a[1], c(1, 1), alpha) * genpoch(a[2], c(1, 1), alpha) /
       genpoch(b[1], c(1, 1), alpha) / genpoch(b[2], c(1, 1), alpha) *
-      Schur(x, c(1, 1)) / 2 +
+      SchurR(x, c(1, 1)) / 2 +
     genpoch(a[1], c(2), alpha) * genpoch(a[2], c(2), alpha) /
       genpoch(b[1], c(2), alpha) / genpoch(b[2], c(2), alpha) *
-      Schur(x, c(2)) / 2
+      SchurR(x, c(2)) / 2
   o2 <- hypergeomPFQ(m, a, b, x, alpha)
   expect_equal(o1, o2)
 })
 
 test_that("Zonal expansion", {
-  skip_if_not_installed("jack")
+  skip_if_not_installed("jack", minimum_version = "6.0.0")
   library(jack)
   genpoch <- function(a, kappa, alpha) {
     prod(sapply(seq_along(kappa), function(i) {
@@ -65,16 +65,16 @@ test_that("Zonal expansion", {
   o1 <-
     genpoch(a[1], c(0), alpha) * genpoch(a[2], c(0), alpha) /
     genpoch(b[1], c(0), alpha) / genpoch(b[2], c(0), alpha) *
-    Zonal(x, c(0)) +
+    ZonalR(x, c(0)) +
     genpoch(a[1], c(1), alpha) * genpoch(a[2], c(1), alpha) /
       genpoch(b[1], c(1), alpha) / genpoch(b[2], c(1), alpha) *
-      Zonal(x, c(1)) +
+      ZonalR(x, c(1)) +
     genpoch(a[1], c(1, 1), alpha) * genpoch(a[2], c(1, 1), alpha) /
       genpoch(b[1], c(1, 1), alpha) / genpoch(b[2], c(1, 1), alpha) *
-      Zonal(x, c(1, 1)) / 2 +
+      ZonalR(x, c(1, 1)) / 2 +
     genpoch(a[1], c(2), alpha) * genpoch(a[2], c(2), alpha) /
       genpoch(b[1], c(2), alpha) / genpoch(b[2], c(2), alpha) *
-      Zonal(x, c(2)) / 2
+      ZonalR(x, c(2)) / 2
   o2 <- hypergeomPFQ(m, a, b, x, alpha)
   expect_equal(o1, o2)
   #
@@ -84,22 +84,22 @@ test_that("Zonal expansion", {
   o1 <-
     genpoch(a[1], c(0), alpha) * genpoch(a[2], c(0), alpha) /
     genpoch(b[1], c(0), alpha) / genpoch(b[2], c(0), alpha) *
-    Zonal(x, c(0)) +
+    ZonalR(x, c(0)) +
     genpoch(a[1], c(1), alpha) * genpoch(a[2], c(1), alpha) /
       genpoch(b[1], c(1), alpha) / genpoch(b[2], c(1), alpha) *
-      Zonal(x, c(1)) +
+      ZonalR(x, c(1)) +
     genpoch(a[1], c(1, 1), alpha) * genpoch(a[2], c(1, 1), alpha) /
       genpoch(b[1], c(1, 1), alpha) / genpoch(b[2], c(1, 1), alpha) *
-      Zonal(x, c(1, 1)) / 2 +
+      ZonalR(x, c(1, 1)) / 2 +
     genpoch(a[1], c(2), alpha) * genpoch(a[2], c(2), alpha) /
       genpoch(b[1], c(2), alpha) / genpoch(b[2], c(2), alpha) *
-      Zonal(x, c(2)) / 2
+      ZonalR(x, c(2)) / 2
   o2 <- hypergeomPFQ(m, a, b, x, alpha)
   expect_equal(o1, o2)
 })
 
 test_that("ZonalQ expansion", {
-  skip_if_not_installed("jack")
+  skip_if_not_installed("jack", minimum_version = "6.0.0")
   library(jack)
   genpoch <- function(a, kappa, alpha) {
     prod(sapply(seq_along(kappa), function(i) {
@@ -114,16 +114,16 @@ test_that("ZonalQ expansion", {
   o1 <-
     genpoch(a[1], c(0), alpha) * genpoch(a[2], c(0), alpha) /
     genpoch(b[1], c(0), alpha) / genpoch(b[2], c(0), alpha) *
-    ZonalQ(x, c(0)) +
+    ZonalQR(x, c(0)) +
     genpoch(a[1], c(1), alpha) * genpoch(a[2], c(1), alpha) /
       genpoch(b[1], c(1), alpha) / genpoch(b[2], c(1), alpha) *
-      ZonalQ(x, c(1)) +
+      ZonalQR(x, c(1)) +
     genpoch(a[1], c(1, 1), alpha) * genpoch(a[2], c(1, 1), alpha) /
       genpoch(b[1], c(1, 1), alpha) / genpoch(b[2], c(1, 1), alpha) *
-      ZonalQ(x, c(1, 1)) / 2 +
+      ZonalQR(x, c(1, 1)) / 2 +
     genpoch(a[1], c(2), alpha) * genpoch(a[2], c(2), alpha) /
       genpoch(b[1], c(2), alpha) / genpoch(b[2], c(2), alpha) *
-      ZonalQ(x, c(2)) / 2
+      ZonalQR(x, c(2)) / 2
   o2 <- hypergeomPFQ(m, a, b, x, alpha)
   expect_equal(o1, o2)
   #
@@ -133,16 +133,16 @@ test_that("ZonalQ expansion", {
   o1 <-
     genpoch(a[1], c(0), alpha) * genpoch(a[2], c(0), alpha) /
     genpoch(b[1], c(0), alpha) / genpoch(b[2], c(0), alpha) *
-    ZonalQ(x, c(0)) +
+    ZonalQR(x, c(0)) +
     genpoch(a[1], c(1), alpha) * genpoch(a[2], c(1), alpha) /
       genpoch(b[1], c(1), alpha) / genpoch(b[2], c(1), alpha) *
-      ZonalQ(x, c(1)) +
+      ZonalQR(x, c(1)) +
     genpoch(a[1], c(1, 1), alpha) * genpoch(a[2], c(1, 1), alpha) /
       genpoch(b[1], c(1, 1), alpha) / genpoch(b[2], c(1, 1), alpha) *
-      ZonalQ(x, c(1, 1)) / 2 +
+      ZonalQR(x, c(1, 1)) / 2 +
     genpoch(a[1], c(2), alpha) * genpoch(a[2], c(2), alpha) /
       genpoch(b[1], c(2), alpha) / genpoch(b[2], c(2), alpha) *
-      ZonalQ(x, c(2)) / 2
+      ZonalQR(x, c(2)) / 2
   o2 <- hypergeomPFQ(m, a, b, x, alpha)
   expect_equal(o1, o2)
 })
